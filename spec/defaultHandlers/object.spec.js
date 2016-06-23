@@ -2,7 +2,7 @@ import objectHandler from '../../lib/defaultHandlers/object'
 
 describe('Object Handler',function(){
 
-  it('should returns true confirming that its an object',()=>{
+  it('should returns true confirming that 2 is NOT an object',()=>{
     expect(objectHandler.check(2)).toBe(false)
   })
 
@@ -10,7 +10,7 @@ describe('Object Handler',function(){
     expect(objectHandler.check('a')).toBe(false)
   })
 
-  it('should returns false confirming that {} is NOT an object',()=>{
+  it('should returns false confirming that {} is an object',()=>{
     expect(objectHandler.check({})).toBe(true)
   })
 

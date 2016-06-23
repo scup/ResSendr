@@ -2,7 +2,7 @@ import arrayHandler from '../../lib/defaultHandlers/array'
 
 describe('Array Handler',function(){
 
-  it('should returns true confirming that its an array',()=>{
+  it('should returns true confirming that 2 is NOT an array',()=>{
     expect(arrayHandler.check(2)).toBe(false)
   })
 
@@ -14,7 +14,7 @@ describe('Array Handler',function(){
     expect(arrayHandler.check({})).toBe(false)
   })
 
-  it('should returns false confirming that [] is NOT an array',()=>{
+  it('should returns false confirming that [] is an array',()=>{
     expect(arrayHandler.check([])).toBe(true)
   })
 

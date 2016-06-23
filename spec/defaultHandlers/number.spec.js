@@ -2,7 +2,7 @@ import numberHandler from '../../lib/defaultHandlers/number'
 
 describe('Number Handler',function(){
 
-  it('should returns true confirming that its a number',()=>{
+  it('should returns true confirming that 2 is a number',()=>{
     expect(numberHandler.check(2)).toBe(true)
   })
 

@@ -2,11 +2,11 @@ import stringHandler from '../../lib/defaultHandlers/string'
 
 describe('String Handler',function(){
 
-  it('should returns true confirming that its a string',()=>{
+  it('should returns true confirming that 2 is NOT a string',()=>{
     expect(stringHandler.check(2)).toBe(false)
   })
 
-  it('should returns false confirming that "a" is NOT a string',()=>{
+  it('should returns false confirming that "a" is a string',()=>{
     expect(stringHandler.check('a')).toBe(true)
   })
 

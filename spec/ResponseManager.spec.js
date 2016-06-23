@@ -1,5 +1,6 @@
 import ResponseManager from '../lib/ResponseManager';
 import Handler from '../lib/Handler';
+import promiseHandler from '../lib/defaultHandlers/promise';
 
 
 describe("ResponseManager", ()=>{
@@ -28,16 +29,32 @@ describe("ResponseManager", ()=>{
   })
 
   describe("ResponseManager.handle", ()=>{
-    let result;
-    let res = {
-      end(v){
-        result = v;
-      }
-    }
 
-    it("should handle a value", ()=>{
+    it("should handle a number", ()=>{
+      let result;
+      let res = {
+        end(v){
+          result = v;
+        }
+      }
 
       let reqHandler = rm.handle((req,r) => 2);
+      reqHandler(false,res);
+      expect(result).toBe('2')
+
+    })
+
+
+    it("should handle a promise", ()=>{
+      let result;
+      let res = {
+        end(v){
+          result = v;
+        }
+      }
+      
+      rm.addHandler(promiseHandler);
+      let reqHandler = rm.handle((req,r) => Promise.resolve(2));
       reqHandler(false,res);
       expect(result).toBe('2')
 
