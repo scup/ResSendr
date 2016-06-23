@@ -8,8 +8,6 @@ export default class ResponseManager{
 
   addHandler(handler){
 
-    console.log(Handler);
-
     if (!(handler instanceof Handler))
       throw 'Handler must be a Handler instance';
 
