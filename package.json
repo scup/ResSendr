@@ -1,11 +1,11 @@
 {
   "name": "ressendr",
   "main": "lib/index.js",
-  "version": "0.0.4",
+  "version": "0.0.51",
   "scripts": {
     "test": "node spec/runner.js",
     "work": "nodemon spec/runner.js",
-    "postinstall": "babel src --out-dir lib"
+    "postinstall": "babel src --out-dir lib --presets es2015"
   },
   "dependencies": {
     "babel-cli": "^6.10.1",
