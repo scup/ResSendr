@@ -1,16 +1,14 @@
 {
   "name": "ressendr",
-  "version": "0.0.1",
+  "main" : "lib/index.js",
+  "version": "0.0.3",
   "scripts": {
     "test": "node spec/runner.js",
     "work": "nodemon spec/runner.js",
     "postinstall": "babel src --out-dir lib"
   },
   "dependencies": {
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
+    "babel": "^6.5.2",
     "nodemon": "^1.9.2"
   },
   "devDependencies": {
