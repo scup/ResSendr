@@ -1,7 +1,7 @@
-import Handler from './Handler';
-import consts from './consts'
+let Handler = require('./Handler');
+let consts = require('./consts');
 
-export default class ResponseManager{
+class ResponseManager{
   constructor(){
     this.handlers = [];
   }
@@ -44,3 +44,6 @@ export default class ResponseManager{
   }
 
 }
+
+
+module.exports = ResponseManager;

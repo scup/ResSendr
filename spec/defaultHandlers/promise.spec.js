@@ -1,4 +1,4 @@
-import promiseHandler from '../../lib/defaultHandlers/promise'
+import promiseHandler from '../../src/defaultHandlers/promise'
 
 describe('Promise Handler',function(){
 

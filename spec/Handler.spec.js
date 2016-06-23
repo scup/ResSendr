@@ -1,9 +1,9 @@
-import Handler from '../lib/Handler';
+import Handler from '../src/Handler';
 
 describe("Handler", function() {
 
   let checker = (v) => typeof v === 'number';
-  
+
   let resolver = (v)=>{
     if (typeof v === 'number'){
       return v.toString();

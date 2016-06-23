@@ -1,4 +1,4 @@
-import numberHandler from '../../lib/defaultHandlers/number'
+import numberHandler from '../../src/defaultHandlers/number'
 
 describe('Number Handler',function(){
 

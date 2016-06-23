@@ -1,9 +1,10 @@
 {
-  "name": "ResSender",
+  "name": "ressendr",
   "version": "0.0.1",
   "scripts": {
     "test": "node spec/runner",
-    "work": "nodemon spec/runner"
+    "work": "nodemon spec/runner",
+    "postinstall": "babel src --out-dir lib"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

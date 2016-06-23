@@ -1,4 +1,4 @@
-import arrayHandler from '../../lib/defaultHandlers/array'
+import arrayHandler from '../../src/defaultHandlers/array'
 
 describe('Array Handler',function(){
 

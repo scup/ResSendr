@@ -1,4 +1,4 @@
-import objectHandler from '../../lib/defaultHandlers/object'
+import objectHandler from '../../src/defaultHandlers/object'
 
 describe('Object Handler',function(){
 

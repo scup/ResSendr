@@ -1,4 +1,4 @@
-import stringHandler from '../../lib/defaultHandlers/string'
+import stringHandler from '../../src/defaultHandlers/string'
 
 describe('String Handler',function(){
 

@@ -1,6 +1,6 @@
-import ResponseManager from '../lib/ResponseManager';
-import Handler from '../lib/Handler';
-import promiseHandler from '../lib/defaultHandlers/promise';
+import ResponseManager from '../src/ResponseManager';
+import Handler from '../src/Handler';
+import promiseHandler from '../src/defaultHandlers/promise';
 
 
 describe("ResponseManager", ()=>{
