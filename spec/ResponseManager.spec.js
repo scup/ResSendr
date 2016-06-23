@@ -25,7 +25,7 @@ describe("ResponseManager", ()=>{
 
       let rm = new ResponseManager();
 
-      rm.addHandler(
+      rm.addCustomHandler(
         v => typeof v === 'number',
         v => v.toString()
       )

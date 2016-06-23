@@ -6,6 +6,12 @@ export default class ResponseManager{
     this.handlers = [];
   }
 
+  addCustomHandler(handler,resolver){
+    if (!(handler instanceof Handler))
+      return this.handlers.unshift(new Handler(handler, resolver));
+    return this.handlers.unshift(handler);
+  }
+
   addHandler(handler,resolver){
     if (!(handler instanceof Handler))
       return this.handlers.push(new Handler(handler, resolver));
