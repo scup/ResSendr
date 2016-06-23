@@ -4,12 +4,13 @@ import consts from './consts';
 export default class ResponseManager{
   constructor(){
     this.handlers = [];
+    this.customHandlers = [];
   }
 
   addCustomHandler(handler,resolver){
     if (!(handler instanceof Handler))
-      return this.handlers.unshift(new Handler(handler, resolver));
-    return this.handlers.unshift(handler);
+      return this.customHandlers.push(new Handler(handler, resolver));
+    return this.customHandlers.push(handler);
   }
 
   addHandler(handler,resolver){
@@ -29,15 +30,30 @@ export default class ResponseManager{
     return (handler) => handler.check(value);
   }
 
+  _findCustomResolver(value){
+    return this.customHandlers.find(this._checkResolver(value))
+  }
+
   _findResolver(value){
     return this.handlers.find(this._checkResolver(value))
   }
 
   _resolve(value,res){
+    let solvedValue;
+    let customResolver = this._findCustomResolver(value);
+
+
+    if (customResolver){
+      value = customResolver.resolve(value,res,this._resolve.bind(this))
+      if (value == consts.delayedSolver){
+        return consts.delayedSolver
+      }
+    }
+
     let resolver = this._findResolver(value);
     if (resolver){
 
-      const solvedValue = resolver.resolve(value,res,this._resolve.bind(this))
+      solvedValue = resolver.resolve(value,res,this._resolve.bind(this))
       if (solvedValue !== consts.delayedSolver){
         return res.end(solvedValue);
       }else{

@@ -21,7 +21,7 @@ describe("ResponseManager", ()=>{
 
     });
 
-    it("should instantiate and add a Handler", ()=>{
+    it("should instantiate and add a CustomHandler", ()=>{
 
       let rm = new ResponseManager();
 
@@ -30,7 +30,7 @@ describe("ResponseManager", ()=>{
         v => v.toString()
       )
 
-      expect(rm.handlers.length).toBe(1)
+      expect(rm.customHandlers.length).toBe(1)
 
     });
 
