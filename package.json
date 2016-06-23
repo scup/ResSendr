@@ -1,7 +1,7 @@
 {
   "name": "ressendr",
   "main": "lib/index.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "test": "node spec/runner.js",
     "work": "nodemon spec/runner.js",
@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
     "nodemon": "^1.9.2"
   },
   "devDependencies": {
-    "babel-preset-es2015": "^6.9.0",
     "babel-register": "^6.9.0",
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",

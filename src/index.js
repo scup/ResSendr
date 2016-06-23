@@ -1,5 +1,5 @@
-const ResponseManager = require('./ResponseManager');
-const Handlers = require('./defaultHandlers');
+import ResponseManager from './ResponseManager';
+import Handlers from './defaultHandlers';
 const rm = new ResponseManager();
 
 Handlers.forEach(rm.addHandler);
