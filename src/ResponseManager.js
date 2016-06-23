@@ -6,11 +6,9 @@ export default class ResponseManager{
     this.handlers = [];
   }
 
-  addHandler(handler){
-
+  addHandler(handler,resolver){
     if (!(handler instanceof Handler))
-      throw 'Handler must be a Handler instance';
-
+      return this.handlers.push(new Handler(handler, resolver));
     return this.handlers.push(handler);
   }
 

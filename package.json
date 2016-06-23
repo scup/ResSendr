@@ -1,7 +1,7 @@
 {
   "name": "ressendr",
   "main": "lib/index.js",
-  "version": "0.0.52",
+  "version": "0.0.53",
   "scripts": {
     "test": "node spec/runner.js",
     "work": "nodemon spec/runner.js",

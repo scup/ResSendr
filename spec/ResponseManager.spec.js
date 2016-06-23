@@ -6,7 +6,7 @@ import promiseHandler from '../src/defaultHandlers/promise';
 describe("ResponseManager", ()=>{
 
   describe("ResponseManager.addHandler", ()=>{
-    it("should add a Handler", ()=>{
+    it("should add a Handler instance", ()=>{
 
       let rm = new ResponseManager();
 
@@ -21,12 +21,20 @@ describe("ResponseManager", ()=>{
 
     });
 
-    it("should complain, adding a handler that is not an instance of Handler", ()=>{
+    it("should instantiate and add a Handler", ()=>{
 
-      expect(x=>rm.addHandler('handler'))
-      .toThrow();
+      let rm = new ResponseManager();
 
-    })
+      rm.addHandler(
+        v => typeof v === 'number',
+        v => v.toString()
+      )
+
+      expect(rm.handlers.length).toBe(1)
+
+    });
+
+
   })
 
   describe("ResponseManager.handle", ()=>{
