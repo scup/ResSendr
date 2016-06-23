@@ -1,12 +1,15 @@
-let Handler = require('./Handler');
-let consts = require('./consts');
+import Handler from './Handler.js';
+import consts from './consts';
 
-class ResponseManager{
+export default class ResponseManager{
   constructor(){
     this.handlers = [];
   }
 
   addHandler(handler){
+
+    console.log(Handler);
+
     if (!(handler instanceof Handler))
       throw 'Handler must be a Handler instance';
 
@@ -44,6 +47,3 @@ class ResponseManager{
   }
 
 }
-
-
-module.exports = ResponseManager;

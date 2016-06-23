@@ -4,4 +4,4 @@ const rm = new ResponseManager();
 
 Handlers.forEach(rm.addHandler);
 
-module.exports = rm;
+export default rm;

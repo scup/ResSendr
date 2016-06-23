@@ -2,8 +2,8 @@
   "name": "ressendr",
   "version": "0.0.1",
   "scripts": {
-    "test": "node spec/runner",
-    "work": "nodemon spec/runner",
+    "test": "node spec/runner.js",
+    "work": "nodemon spec/runner.js",
     "postinstall": "babel src --out-dir lib"
   },
   "dependencies": {

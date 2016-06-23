@@ -1,4 +1,4 @@
-class Handler{
+export default class Handler{
     constructor(checker, resolver){
       this.checker = checker
       this.resolver = resolver
@@ -14,5 +14,3 @@ class Handler{
 
     }
 }
-
-module.exports = Handler;

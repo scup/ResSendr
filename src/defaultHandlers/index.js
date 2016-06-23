@@ -1,11 +1,11 @@
-arrayHandlr = require('./array');
-numberHandlr = require('./number');
-objectHandlr = require('./object');
-promiseHandlr = require('./promise');
-stringHandlr = require('./string');
+import arrayHandlr from './array';
+import numberHandlr from './number';
+import objectHandlr from './object';
+import promiseHandlr from './promise';
+import stringHandlr from './string';
 
 
-module.exports = [
+export default [
   arrayHandlr,
   numberHandlr,
   objectHandlr,
