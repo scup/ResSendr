@@ -1,5 +1,5 @@
-import consts from '../consts'
-import Handler from '../Handler'
+import consts from '../consts';
+import Handler from '../Handler';
 
 
 const checker = function(value){
@@ -7,12 +7,12 @@ const checker = function(value){
     return value instanceof Promise;
   }
 
-  return value.hasOwnProperty('then') && value.hasOwnProperty('catch')
-}
+  return value.hasOwnProperty('then') && value.hasOwnProperty('catch');
+};
 
 const resolver = function(value, res, delayedSolver){
-  value.then(v=>delayedSolver(v, res, delayedSolver))
+  value.then(v=>delayedSolver(v, res, delayedSolver));
   return consts.delayedSolver;
-}
+};
 
-export default (new Handler(checker, resolver))
+export default (new Handler(checker, resolver));

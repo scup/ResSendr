@@ -1,11 +1,11 @@
-import Handler from '../Handler'
+import Handler from '../Handler';
 
 const checker = function(value){
-  return typeof value === 'number'
-}
+  return typeof value === 'number';
+};
 
 const resolver = function(value){
-  return value.toString()
-}
+  return value.toString();
+};
 
-export default (new Handler(checker,resolver))
+export default (new Handler(checker,resolver));

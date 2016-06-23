@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
+  "globals": {
+    "API_URL": true
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jasmine": true
+  },
+  "rules": {
+    "no-unused-vars": 1,
+    "indent": [1, 2, {"SwitchCase": 1}],
+    "semi": [1, "always"],
+    "no-var": 2,
+    "prefer-const": 1,
+    "no-console": 1,
+    "no-debugger": 1,
+    "no-unreachable": 1
+  }
+}

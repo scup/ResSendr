@@ -21,9 +21,9 @@ export default class ResponseManager{
 
   handle(method){
     return (req, res, next)=>{
-      let value = method(req,res,next)
+      const value = method(req,res,next);
       return this._resolve(value,res);
-    }
+    };
   }
 
   _checkResolver(value){
@@ -31,33 +31,32 @@ export default class ResponseManager{
   }
 
   _findCustomResolver(value){
-    return this.customHandlers.find(this._checkResolver(value))
+    return this.customHandlers.find(this._checkResolver(value));
   }
 
   _findResolver(value){
-    return this.handlers.find(this._checkResolver(value))
+    return this.handlers.find(this._checkResolver(value));
   }
 
   _resolve(value,res){
-    let solvedValue;
-    let customResolver = this._findCustomResolver(value);
+    const customResolver = this._findCustomResolver(value);
 
 
     if (customResolver){
-      value = customResolver.resolve(value,res,this._resolve.bind(this))
+      value = customResolver.resolve(value,res,this._resolve.bind(this));
       if (value == consts.delayedSolver){
-        return consts.delayedSolver
+        return consts.delayedSolver;
       }
     }
 
-    let resolver = this._findResolver(value);
+    const resolver = this._findResolver(value);
     if (resolver){
 
-      solvedValue = resolver.resolve(value,res,this._resolve.bind(this))
+      const solvedValue = resolver.resolve(value,res,this._resolve.bind(this));
       if (solvedValue !== consts.delayedSolver){
         return res.end(solvedValue);
       }else{
-        return consts.delayedSolver
+        return consts.delayedSolver;
       }
     }
 

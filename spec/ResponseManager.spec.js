@@ -8,88 +8,88 @@ describe("ResponseManager", ()=>{
   describe("ResponseManager.addHandler", ()=>{
     it("should add a Handler instance", ()=>{
 
-      let rm = new ResponseManager();
+      const rm = new ResponseManager();
 
-      let handler = new Handler(
+      const handler = new Handler(
         v => typeof v === 'number',
         v => v.toString()
       );
 
-      rm.addHandler(handler)
+      rm.addHandler(handler);
 
-      expect(rm.handlers.length).toBe(1)
+      expect(rm.handlers.length).toBe(1);
 
     });
 
     it("should instantiate and add a CustomHandler", ()=>{
 
-      let rm = new ResponseManager();
+      const rm = new ResponseManager();
 
       rm.addCustomHandler(
         v => typeof v === 'number',
         v => v.toString()
-      )
+      );
 
-      expect(rm.customHandlers.length).toBe(1)
+      expect(rm.customHandlers.length).toBe(1);
 
     });
 
 
-  })
+  });
 
   describe("ResponseManager.handle", ()=>{
 
     it("should handle a number", ()=>{
-      let rm = new ResponseManager();
-      let handler = new Handler(
+      const rm = new ResponseManager();
+      const handler = new Handler(
         v => typeof v === 'number',
         v => v.toString()
       );
-      rm.addHandler(handler)
+      rm.addHandler(handler);
 
 
       let result;
-      let res = {
+      const res = {
         end(v){
           result = v;
         }
-      }
+      };
 
-      let reqHandler = rm.handle((req,r) => 2);
+      const reqHandler = rm.handle(() => 2);
       reqHandler(false,res);
 
-      expect(result).toBe('2')
+      expect(result).toBe('2');
 
-    })
+    });
 
 
     it("should handle a promise", (done)=>{
-      let rm = new ResponseManager();
-      let handler = new Handler(
+      const rm = new ResponseManager();
+      const handler = new Handler(
         v => typeof v === 'number',
         v => v.toString()
       );
-      rm.addHandler(promiseHandler)
-      rm.addHandler(handler)
+      rm.addHandler(promiseHandler);
+      rm.addHandler(handler);
 
       let result;
-      let res = {
+      const res = {
         end(v){
           result = v;
         }
-      }
+      };
 
       rm.addHandler(promiseHandler);
-      let reqHandler = rm.handle(_ => Promise.resolve(2));
+      const reqHandler = rm.handle(() => Promise.resolve(2));
       reqHandler(false,res);
 
       setTimeout(()=>{
-        expect(result).toBe('2')
-        done()
-      },100)
+        expect(result).toBe('2');
+        done();
+      },100);
 
-    })
+    });
 
-  })
+  });
 
 });

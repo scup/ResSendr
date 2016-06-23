@@ -11,4 +11,4 @@ export default [
   objectHandlr,
   promiseHandlr,
   stringHandlr
-]
+];

@@ -2,13 +2,13 @@ import Handler from '../src/Handler';
 
 describe("Handler", function() {
 
-  let checker = (v) => typeof v === 'number';
+  const checker = (v) => typeof v === 'number';
 
-  let resolver = (v)=>{
+  const resolver = (v)=>{
     if (typeof v === 'number'){
       return v.toString();
     }
-  }
+  };
 
   let handlr = '';
 

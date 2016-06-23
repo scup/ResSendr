@@ -1,40 +1,40 @@
-import numberHandler from '../../src/defaultHandlers/number'
+import numberHandler from '../../src/defaultHandlers/number';
 
 describe('Number Handler',function(){
 
   it('should returns true confirming that 2 is a number',()=>{
-    expect(numberHandler.check(2)).toBe(true)
-  })
+    expect(numberHandler.check(2)).toBe(true);
+  });
 
   it('should returns false confirming that "a" is NOT a number',()=>{
-    expect(numberHandler.check('a')).toBe(false)
-  })
+    expect(numberHandler.check('a')).toBe(false);
+  });
 
   it('should returns false confirming that {} is NOT a number',()=>{
-    expect(numberHandler.check({})).toBe(false)
-  })
+    expect(numberHandler.check({})).toBe(false);
+  });
 
   it('should returns false confirming that [] is NOT a number',()=>{
-    expect(numberHandler.check([])).toBe(false)
-  })
+    expect(numberHandler.check([])).toBe(false);
+  });
 
   it('should returns false confirming that true is NOT a number',()=>{
-    expect(numberHandler.check(undefined)).toBe(false)
-  })
+    expect(numberHandler.check(undefined)).toBe(false);
+  });
 
   it('should returns false confirming that false is NOT a number',()=>{
-    expect(numberHandler.check(false)).toBe(false)
-  })
+    expect(numberHandler.check(false)).toBe(false);
+  });
 
   it('should returns false confirming that true is NOT a number',()=>{
-    expect(numberHandler.check(true)).toBe(false)
-  })
+    expect(numberHandler.check(true)).toBe(false);
+  });
 
-  it('should returns false confirming that console.log is NOT a number',()=>{
-    expect(numberHandler.check(console.log)).toBe(false)
-  })
+  it('should returns false confirming that function is NOT a number',()=>{
+    expect(numberHandler.check(function(){})).toBe(false);
+  });
 
   it('should returns false confirming that Promise is NOT a number',()=>{
-    expect(numberHandler.check(new Promise(()=>{}))).toBe(false)
-  })
-})
+    expect(numberHandler.check(new Promise(()=>{}))).toBe(false);
+  });
+});
