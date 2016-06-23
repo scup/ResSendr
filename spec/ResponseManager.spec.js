@@ -4,10 +4,11 @@ import promiseHandler from '../lib/defaultHandlers/promise';
 
 
 describe("ResponseManager", ()=>{
-  let rm = new ResponseManager();
 
   describe("ResponseManager.addHandler", ()=>{
     it("should add a Handler", ()=>{
+
+      let rm = new ResponseManager();
 
       let handler = new Handler(
         v => typeof v === 'number',
@@ -31,6 +32,14 @@ describe("ResponseManager", ()=>{
   describe("ResponseManager.handle", ()=>{
 
     it("should handle a number", ()=>{
+      let rm = new ResponseManager();
+      let handler = new Handler(
+        v => typeof v === 'number',
+        v => v.toString()
+      );
+      rm.addHandler(handler)
+
+
       let result;
       let res = {
         end(v){
@@ -40,23 +49,36 @@ describe("ResponseManager", ()=>{
 
       let reqHandler = rm.handle((req,r) => 2);
       reqHandler(false,res);
+
       expect(result).toBe('2')
 
     })
 
 
-    it("should handle a promise", ()=>{
+    it("should handle a promise", (done)=>{
+      let rm = new ResponseManager();
+      let handler = new Handler(
+        v => typeof v === 'number',
+        v => v.toString()
+      );
+      rm.addHandler(promiseHandler)
+      rm.addHandler(handler)
+
       let result;
       let res = {
         end(v){
           result = v;
         }
       }
-      
+
       rm.addHandler(promiseHandler);
-      let reqHandler = rm.handle((req,r) => Promise.resolve(2));
+      let reqHandler = rm.handle(_ => Promise.resolve(2));
       reqHandler(false,res);
-      expect(result).toBe('2')
+
+      setTimeout(()=>{
+        expect(result).toBe('2')
+        done()
+      },100)
 
     })
 

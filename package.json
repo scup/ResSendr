@@ -1,7 +1,6 @@
 {
-  "name": "ResponseManager",
-  "version": "0.0.0",
-  "private": true,
+  "name": "ResSender",
+  "version": "0.0.1",
   "scripts": {
     "test": "node spec/runner",
     "work": "nodemon spec/runner"
