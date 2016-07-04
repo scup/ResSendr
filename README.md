@@ -29,7 +29,7 @@ function requestHandler(req){
 ```
 
 
-##### Using with promises.
+### Using with promises
 
 
 #### before
@@ -58,7 +58,7 @@ function requestHandler(req){
 
 
 
-##### Using with promises.Writing your own handlers :
+### Writing your own handlers
 ```javascript
 import r from 'ressendr'
 
