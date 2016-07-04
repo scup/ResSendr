@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ResSendr.</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="common.css">
+	<link rel="stylesheet" href="style-rm.css">
+	<link rel="dynamic-stylesheet" href="d-style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<header>
+	<div class="highlight-header">
+
+		<canvas id="bg" width="300" height="300"></canvas>
+		<div class="logo"></div>
+	</div>
+</header>
+
+    <section id="content">
+
+    <p align="center">
+      ResSendr - Friendly request handlers.
+    </p>
+		<p align="center">
+      <a href="https://github.com/scup/ResSendr/">github.com/scup/ResSendr</a>
+    </p>
+
+      <h1 id="Getting Started">Getting Started</h1>
+
+      <h3 id="Installing">Installing</h3>
+        <pre>
+        <code>
+$ npm install ressendr --save
+        </code>
+        </pre>
+
+
+
+				<h3 id="Installing">Before : </h3>
+        <pre>
+        <code>
+app.get('/hello',requestHandler)
+
+function requestHandler(req, res){
+  res.end('World!')
+}
+        </code>
+        </pre>
+
+
+
+				<h3 id="Installing">After : </h3>
+        <pre>
+        <code>
+import r from 'ressendr'
+
+app.get('/hello',r.handle(requestHandler))
+
+function requestHandler(req){
+  return 'World!';
+}
+        </code>
+        </pre>
+
+
+
+
+<h1 id="Using with promises:">Using with promises:</h1>
+
+
+<h3 id="Installing">Before : </h3>
+<pre>
+<code>
+app.get('/hello',requestHandler)
+
+function requestHandler(req, res){
+  asyncIO.get()
+  .then((response)=>{
+    res.end(response);
+  })
+}
+</code>
+</pre>
+
+
+
+<h3 id="Installing">After : </h3>
+<pre>
+<code>
+import r from 'ressendr'
+
+app.get('/hello',r.handle(requestHandler))
+
+function requestHandler(req, res){
+  return asyncIO.get()
+}
+</code>
+</pre>
+
+
+<h3 id="custom">Writing yout own handlers : </h3>
+<pre>
+<code>
+import r from 'ressendr'
+
+
+//First we need a function that returns true or false
+//true if the data can be handlered by the handle.
+//so lets write a number Handler
+
+let isNumber = value => !isNaN(value);
+
+//Now we need to handle the value and send it.
+
+let handler = (v,res) => res.end(v.toString());
+
+r.addHandler(isNumber,handler);
+
+app.get('/hello',r.handle(requestHandler))
+
+function requestHandler(req, res){
+  return 2
+}
+</code>
+</pre>
+
+
+
+    </section>
+
+	<script src="https://cdn.rawgit.com/guisouza/DSS/master/dist/dss.min.js"></script>
+	<script type="text/javascript">
+		const BGCOLOR = '#3ceac7';
+	  const FGCOLOR = '#4df9f9';
+		const BGRGB = 'rgba(77,249,249,0)';
+	</script>
+	<script type="text/javascript" src="js/animation/lib/Stage.js"></script>
+	<script type="text/javascript" src="js/animation/lib/BlobAnimation.js"></script>
+	<script type="text/javascript" src="js/animation/lib/Grid.js"></script>
+	<script type="text/javascript" src="js/animation/animation.js"></script>
+	<script type="text/javascript" src="js/animation/TweenLite.min.js"></script>
+	<script type="text/javascript" src="js/animation/bulbs.js"></script>
+</body>
+</html>
