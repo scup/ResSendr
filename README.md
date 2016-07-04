@@ -1,6 +1,6 @@
 # ![ResSender](http://i.imgur.com/GUhAwKz.jpg)
 
-## ResSender - Friendly request handlers.
+## ResSendr - Friendly request handlers.
 
 ### Installing
     $ npm install ressendr --save
