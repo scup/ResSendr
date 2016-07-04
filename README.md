@@ -35,7 +35,7 @@ function requestHandler(req){
 #### before
 ```javascript
 
-app.get('/hello',r.handle(requestHandler))
+app.get('/hello',requestHandler)
 
 function requestHandler(req, res){
   asyncIO.get()
