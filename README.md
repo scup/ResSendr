@@ -55,3 +55,30 @@ function requestHandler(req){
   return asyncIO.get()
 }
 ```
+
+
+
+##### Using with promises.Writing yout own handlers :
+```javascript
+import r from 'ressendr'
+
+
+//First we need a function that returns true or false
+//true if the data can be handlered by the handle.
+//so lets write a number Handler
+
+let isNumber = value => !isNaN(value);
+
+//Now we need to handle the value and send it.
+
+let handler = (v,res) => res.end(v.toString());
+
+r.addHandler(isNumber,handler);
+
+app.get('/hello',r.handle(requestHandler))
+
+function requestHandler(req, res){
+  return 2
+}
+
+```
