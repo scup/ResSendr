@@ -21,7 +21,7 @@ function requestHandler(req, res){
 ```javascript
 import r from 'ressendr'
 
-app.get('/hello',requestHandler)
+app.get('/hello',r.handle(requestHandler))
 
 function requestHandler(req){
   return 'World!';
@@ -35,7 +35,7 @@ function requestHandler(req){
 #### before
 ```javascript
 
-app.get('/hello',requestHandler)
+app.get('/hello',r.handle(requestHandler))
 
 function requestHandler(req, res){
   asyncIO.get()
@@ -58,13 +58,13 @@ function requestHandler(req){
 
 
 
-##### Using with promises.Writing yout own handlers :
+##### Using with promises.Writing your own handlers :
 ```javascript
 import r from 'ressendr'
 
 
 //First we need a function that returns true or false
-//true if the data can be handlered by the handle.
+//true if the data can be handle by the handler.
 //so lets write a number Handler
 
 let isNumber = value => !isNaN(value);
