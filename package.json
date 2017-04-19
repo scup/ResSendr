@@ -1,11 +1,11 @@
 {
   "name": "ressendr",
   "main": "lib/index.js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "test": "node spec/runner.js",
     "work": "nodemon spec/runner.js",
-    "postinstall": "babel src --out-dir lib --presets es2015"
+    "prepublish": "babel src --out-dir lib --presets es2015"
   },
   "repository": "https://github.com/scup/ResSendr",
   "dependencies": {
