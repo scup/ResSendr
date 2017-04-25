@@ -2,9 +2,9 @@ import consts from '../consts';
 import Handler from '../Handler';
 
 const checker = value =>
-  value &&
-  value.hasOwnProperty('then') &&
-  value.hasOwnProperty('catch');
+  !!value &&
+  !!value.then &&
+  !!value.catch;
 
 const resolver = function(value, res, delayedSolver){
   value.then(v=>delayedSolver(v, res, delayedSolver));

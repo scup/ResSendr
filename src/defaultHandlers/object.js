@@ -1,6 +1,6 @@
 import Handler from '../Handler';
 
-const isPromise = (v) => v.hasOwnProperty('then');
+const isPromise = (v) => !!v && !!v.then && !!v.catch; 
 
 const checker = function(value){
   return typeof value === 'object' && !Array.isArray(value) && (!isPromise(value));
